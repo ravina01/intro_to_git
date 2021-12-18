@@ -3,7 +3,7 @@
 ## Network Configuration
 Terminal 1:
 ```bash
-ssh ubuntu@192.168.43.165
+ssh ubuntu@{$RASPI_IP_ADDRESS}
 password : turtlebot
 ```
 
