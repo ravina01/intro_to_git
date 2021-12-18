@@ -1,35 +1,42 @@
-# Final report 
-# Foobar
+# Autonomous Navigation Readme File
 
-Foobar is a Python library for dealing with word pluralization.
+### Network Configuration
+Terminal 1:
+```bash
+ssh ubuntu@192.168.43.165
+password : turtlebot
+```
 
-## Installation
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+### Bringup Turtlebot
+Terminal 2:
 
 ```bash
-pip install foobar
+roslaunch turtlebot3_bringup turtlebot3_robot.launch
+```
+### Initiate camera node in the turtlebot
+```bash
+roslaunch raspicam_node camerav2_1280x960_10fps.launch enable_raw:=true
+```
+## Apriltag detection code for finding the pose of the simulated Apriltag
+
+```bash
+roslaunch turtlebot3_mr apriltag_gazebo.launch 
 ```
 
-## Usage
-
-```python
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
+## Execute custom launch file to launch : Move base,slam : gMapping, and Frontier exploration
+```bash
+roslaunch turtlebot3_mr casey.launch
 ```
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## Running the camera
+```bash
+rosrun tf static_transform_publisher 0.03 0 0.1 0 0 0 base_link raspicam 100
+```
 
-Please make sure to update tests as appropriate.
+## Detect number of apriltags 
+```bash
+rosrun turtlebot aprilTags_detection.py
+```
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[NEU](https://choosealicense.com/licenses/mit/)
