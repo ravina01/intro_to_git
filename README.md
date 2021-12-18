@@ -9,34 +9,43 @@ password : turtlebot
 
 ### Bringup Turtlebot
 Terminal 2:
-
 ```bash
 roslaunch turtlebot3_bringup turtlebot3_robot.launch
 ```
 ### Initiate camera node in the turtlebot
+Terminal 3:
 ```bash
 roslaunch raspicam_node camerav2_1280x960_10fps.launch enable_raw:=true
 ```
 ## Apriltag detection code for finding the pose of the simulated Apriltag
-
+Terminal 4:
 ```bash
 roslaunch turtlebot3_mr apriltag_gazebo.launch 
 ```
 
 ## Execute custom launch file to launch : Move base,slam : gMapping, and Frontier exploration
+Terminal 5:
 ```bash
 roslaunch turtlebot3_mr casey.launch
 ```
 
 ## Running the camera
+Terminal 6:
 ```bash
 rosrun tf static_transform_publisher 0.03 0 0.1 0 0 0 base_link raspicam 100
 ```
 
-## Detect number of apriltags 
+## Detect number of apriltags
+Terminal 7:
 ```bash
 rosrun turtlebot aprilTags_detection.py
 ```
 
+## Save Map 
+Terminal 8:
+```bash
+rosrun map_server map_saver -f ~/casey_map
+```
+
 ## License
-[NEU](https://choosealicense.com/licenses/mit/)
+[NEU](https://brand.northeastern.edu/guide/policies/licensing/)
