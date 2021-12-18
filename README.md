@@ -1,4 +1,4 @@
-# Autonomous Navigation Readme File
+# Autonomous Exploration and Detection of Apriltags
 
 ## Network Configuration
 Terminal 1:
